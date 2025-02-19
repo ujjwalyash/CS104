@@ -1,0 +1,23 @@
+mainfiles_type1 := main1 main2 main4 main5 main6
+mainfiles_type2 := main3 main7 main8 main9
+objectfiles_src1 := comp.o find.o ops.o
+objectfiles_src2 := add.o rem.o
+
+all: main1 main2 main3 main4 main5 main6 main7 main8 main9
+
+$(mainfiles_type1): % : main/%.cpp comp.o find.o ops.o add.o rem.o
+	g++ -Wall --std=c++17 -o $@ $^
+
+$(mainfiles_type2): % : main/%.cpp find.o ops.o add.o
+	g++ -Wall --std=c++17 -o $@ $^
+
+$(objectfiles_src1): %.o: src/src1/%.cpp src/src1/%.h
+	g++ -Wall --std=c++17 -c $< -o $@
+
+$(objectfiles_src2): %.o: src/src2/%.cpp src/src2/%.h
+	g++ -Wall --std=c++17 -c $< -o $@
+
+.PHONY : clean
+
+clean:
+	rm -f $(mainfiles_type1) $(mainfiles_type2) $(objectfiles_src1) $(objectfiles_src2)

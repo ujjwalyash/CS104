@@ -1,0 +1,32 @@
+CXX := g++
+CXXFLAGS := --std=c++11 -Wall -Werror
+
+targets := powerful restoreE
+objfiles := hehe.o nohehe.o haha.o
+
+all: $(targets)
+
+powerful: powerful.cpp hehe.o
+	$(CXX) $(CXXFLAGS) $^ -o powerful
+	@echo $?
+
+restoreE: restore.cpp haha.o nohehe.o hehe.o
+	$(CXX) $(CXXFLAGS) $^ -o restore
+	@echo $?
+
+hehe.o: hehe.cpp card.h
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo $?
+
+haha.o: haha.cpp player.h card.h
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo $?
+
+nohehe.o: nohehe.cpp deck.h card.h
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo $?
+
+.PHONY: restore
+
+restore:
+	rm -f powerful restore $(objfiles)

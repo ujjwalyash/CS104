@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+  <title>Counting Stairs</title>
+</head>
+<body>
+    <h1>Let's Help Erin!</h1>
+    <p>How many ways are there for Stanley to get up the stairs?</p>
+    <label for="inputN">Number of stairs: </label>
+    <input type="number" id="inputN" min="1" step="1" value="1">
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        // TODO: Write your code here
+        function possibility(n){
+          if(n == 1 || n == 0){
+            return 1;
+          }
+          return possibility(n-1) + possibility(n-2);
+        }
+        function calculate(){
+          const n = document.getElementByID("inputN").value;
+          const ans = possibility(n);
+          document.getElementByID("result").innerHTML = "Result: "+ans;
+        }
+    </script>
+</body>
+</html>
