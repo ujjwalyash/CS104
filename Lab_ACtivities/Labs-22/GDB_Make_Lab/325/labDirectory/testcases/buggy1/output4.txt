@@ -1,2 +1,0 @@
-Maximum: 10
-Minimum: -15

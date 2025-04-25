@@ -1,2 +1,0 @@
-Maximum: 9
-Minimum: -5

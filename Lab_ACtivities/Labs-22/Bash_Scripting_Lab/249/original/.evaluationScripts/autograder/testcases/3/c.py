@@ -1,1 +1,0 @@
-inport numpy as np
