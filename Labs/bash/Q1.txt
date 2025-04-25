@@ -1,0 +1,13 @@
+In this activity, you have to write a getEmails.sh bash file, which satisfies the following conditions:
+
+It should accept a single argument representing a txt file. Otherwise it should show "Usage: ./getEmails.sh <valid_file.txt>". If something like "./getEmails.sh <arg1> <arg2>" is used, then it should show the mentioned error message.
+
+Check if the argument file exists or not. If not, show error message "Usage: ./getEmails.sh <valid_file.txt>".
+
+When executed, It should make 3 files: "emails.txt", "sortedEmails.txt", "cseEmails.txt". 
+
+The bash script should extract all the emails of format "<alpha_num>@<alpha>.iitb.ac.in" and store in "emails.txt". Here <alpha_num> can have of alphabets and digits and <alpha>, only alphabets. Assume input.txt file has one email address per line at max, and only email addresses will be present in those lines.
+
+Next, it should sort all the emails based on descending order with case-insensitivity and store the results in "sortedEmails.txt". The sorting is based on lexicographical order.
+
+Next, it should extract all the cse dept emails from sorted emails and store the results in "cseEmails.txt". The cse dept emails are of format "<alpha_num>@cse.iitb.ac.in".

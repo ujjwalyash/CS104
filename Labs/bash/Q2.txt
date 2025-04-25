@@ -1,0 +1,12 @@
+Write a Bash program to append a string (given as a command line argument) to all files having the extension .out, in the same directory as the Bash Script.
+
+Usage :- bash submission.sh <string>
+
+Example :- Command :- "bash submission.sh Hello World 123 @"
+
+On executing this command, the string "Hello World 123 @" will be appended to every file having the extension ".out" in the current directory. All other files should remain untouched.
+
+Checkout the example given in the labDirectory folder. Don't forget to
+
+Have a backup of the directory while testing.
+Copy the submission.sh file into the testing directory.
