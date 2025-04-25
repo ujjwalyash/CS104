@@ -1,0 +1,1 @@
+sed -nE '/^michael/! s/(.*:)?([^:@.]+@([^\.:]+)(\.com|\.org))(:*)(investor)(:.*)?/\2/p' email.txt | sort | uniq

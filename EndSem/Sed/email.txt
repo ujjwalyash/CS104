@@ -1,0 +1,6 @@
+sakshamrath21@gmail.com:investor
+iamfriend@gmail.com:friend
+:::check::ramesh@iitb.org:investor:::check
+michaelsleep@yahoo.com:investor
+hello.cse.iitb.ac.in:investor
+::ill:sakshamrath21@gmail.com:investor::just_checking_duplicates
