@@ -1,0 +1,4 @@
+Entity,Duration,Principal,Type,CompoundRate,Amount
+Reliance,2 years,100,stocks,3,900
+NipponIndia,3 years,1000,mutual funds,2,8000
+Veritas,2 years,200,stocks,4,3200
