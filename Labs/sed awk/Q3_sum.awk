@@ -24,3 +24,41 @@ END{
         printf "%s : %d\n", fields[i], data[fields[i]]
     }
 }
+
+-------------------------------------------------------------------------
+
+BEGIN {
+	FS=","
+}
+
+{
+	if (NR != 1){
+	sums[$3] += $4;	
+	print
+	#print DOES NOT ADD EMPTY LINE PRINTS
+	#      THE LINE BEING PROCESSED USE \n
+	}
+	else{
+		print
+	}
+}
+END{
+	print "====="
+	total = 0;
+	for (name in sums){
+    		total += sums[name]
+	}
+	printf "Net : %s\n", total #not $total
+
+	n = asorti(sums, dest)
+	#asort(sums)
+	#for (name in sums){
+	#	printf "%s : %s\n", name, sums[name] 
+	#	
+	#}
+	for (it = 1; it <= n; it++){
+		print dest[it], ":", sums[dest[it]] 
+		# PRINT AUTOMATICALLY SEPRATES BY SPACE SO
+		#NO " : " NEEDED
+	}
+}	
