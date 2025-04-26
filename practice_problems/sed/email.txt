@@ -1,0 +1,14 @@
+:::::abc@iitb.org:investor::efe:
+:::::abc@iitb.com:investor::efe:
+:::::@iitb.com:investor::efe:
+:::::a@.com:investor::efe:
+:::::a@.com::investor::efe:
+:::::a@@.com::investor::efe:
+:::::a@:a:@.com::investor::efe:
+micheal@.com:investor
+michealburry@.com:investor
+burrymicheal@.com:investor
+burrymicheal@.com:investor
+burrymicheal@.com:investor
+burrymicheal@.com:investor
+burrymicheal@.com:investor
