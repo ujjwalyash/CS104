@@ -118,4 +118,104 @@ match command:
             print(trans if trans else "UNK")
         else:
             print("UNK")
-        
+
+---------------------------------------------------------
+
+import sys
+
+class word:
+    def __init__(self, language, name, relations):
+        self.language = language
+        self.name = name
+        self.relations = relations
+    
+    def add_relation(self, _word):
+        self.relations.append(_word)
+
+    def __bool__(self):
+        return bool(self.name)
+
+#interpreting the connections from translations.csv
+words = []
+with open("translations.csv", "r") as file:
+    line = file.readline().strip("\n")
+    fields = line.split(sep=",")
+
+    while line:
+        word1 , word2 = 0, 0
+        for x in words:
+            if x.name == fields[1]:
+                word1 = x
+            elif x.name == fields[3]:
+                word2 = x
+
+        if word1 == 0 : 
+            word1 = word(fields[0], fields[1], [])
+            words.append(word1)
+        if word2 == 0 : 
+            word2 = word(fields[2], fields[3], [])
+            words.append(word2)
+
+
+        # word_2 = word(fields[2], fields[3])
+
+        word1.add_relation(word2)
+        word2.add_relation(word1)
+
+        line = file.readline().strip("\n")
+        fields = line.split(sep=",")
+
+
+if sys.argv[1] == "1":
+    out = []
+    for x in words:
+        if x.language == sys.argv[2]:
+            out.append(x.name)
+    # print(out.sort()) out.sort RETURNS None
+    out.sort(reverse=True)
+    print(out)
+
+if sys.argv[1] == "2":
+    out = []
+    for x in words:
+        found = False
+        if x.language == sys.argv[2]:
+
+            for y in x.relations:
+                if y.language == sys.argv[3]:
+                    out.append((x.name, y.name))
+                    found = True
+                    break
+            if not found:
+                for y in x.relations:
+                    for z in y.relations:
+                        if z.language == sys.argv[3]:
+                            out.append((x.name, z.name))
+                            found = True
+                            break
+                    break  
+    out.sort(key = lambda x: x[0])
+    print(out)      
+
+if sys.argv[1] == "3":
+
+    for x in words:
+        found = False
+        if x.name == sys.argv[4]:
+
+            for y in x.relations:
+                if y.language == sys.argv[3]:
+                    print(y.name)
+                    found = True
+                    quit()
+            if not found:
+                for y in x.relations:
+                    for z in y.relations:
+                        if z.language == sys.argv[3]:
+                            print(z.name)
+                            found = True
+                            quit()
+            if not found:
+                print("UNK")
+                quit()
+    print("UNK")
